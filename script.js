@@ -1,3 +1,11 @@
+// Grab the buttons
+const numButtons = Array.from(document.querySelectorAll('.num-btn'));
+const delButtons = Array.from(document.querySelectorAll('.del-btn'));
+const display = document.querySelector('.display');
+
+let currentNum;
+
+
 // Add functions for the basic operations
 const add = function(a, b) {
   return a + b;
@@ -32,17 +40,13 @@ const add = function(a, b) {
 
 
 // Show the value of the pressed button on the display
-  // Grab the buttons
-    const buttons = Array.from(document.querySelectorAll('.num-btn'));
-    const display = document.querySelector('.display');
-    let currentNum;
-
-  // Add event listeners 
-    for (let i = 0; i < buttons.length; i++) {
-      buttons[i].addEventListener('click', disp);
+  
+  // Add event listeners for number Buttons
+    for (let i = 0; i < numButtons.length; i++) {
+      numButtons[i].addEventListener('click', disp);
 
       function disp() {
-        currentNum = buttons[i].value;
+        currentNum = numButtons[i].value;
         if (display.textContent === '0') {
           display.textContent = `${currentNum}`;
           
@@ -52,4 +56,20 @@ const add = function(a, b) {
     };
 
     
-  // Store display value in a variable
+// Store display value in a variable
+
+// Add event listeners for del buttons
+    for (let i = 0; i < delButtons.length; i++) {
+      delButtons[i].addEventListener('click', del);
+
+      function del() {
+        if (delButtons[i].value === 'ac') {
+          display.textContent = '0';
+          currentNum = '0';
+        } else if (delButtons[i].value === 'del') {
+          if (display.textContent !== '0') {
+            display.textContent = display.textContent.substring(0, display.textContent.length - 1);
+          }
+        }
+      }  
+    }
