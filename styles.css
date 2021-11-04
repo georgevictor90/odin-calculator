@@ -35,6 +35,7 @@ body {
   border-right: 5px solid #444343;
   border-bottom: 5px solid #202020;
   border-left: 5px solid #202020;
+  overflow: hidden;
 
 }
 
