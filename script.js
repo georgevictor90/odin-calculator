@@ -4,7 +4,7 @@ const delButtons = Array.from(document.querySelectorAll('.del-btn'));
 const display = document.querySelector('.display');
 
 let currentNum;
-
+let defaultNum = '0';
 
 // Add functions for the basic operations
 const add = function(a, b) {
@@ -60,16 +60,24 @@ const add = function(a, b) {
 
 // Add event listeners for del buttons
     for (let i = 0; i < delButtons.length; i++) {
-      delButtons[i].addEventListener('click', del);
+      delButtons[i].addEventListener('click', deleteNum);
 
-      function del() {
+      function deleteNum() {
+      // if user presses AC, currentNum and display resets to 0 
         if (delButtons[i].value === 'ac') {
           display.textContent = '0';
           currentNum = '0';
+          
+      // if user presser DEL, last number of display and currentNum gets deleted    
         } else if (delButtons[i].value === 'del') {
           if (display.textContent !== '0') {
             display.textContent = display.textContent.substring(0, display.textContent.length - 1);
-          }
+            currentNum = display.textContent;
+            if (display.textContent.length === 0) {
+              display.textContent = '0';
+              currentNum = display.textContent;
+            }
+          } 
         }
-      }  
+      } 
     }
