@@ -17,23 +17,23 @@ let previousOperand = '';
 
 // Add functions for the basic operations
 const add = function(a, b) {
-  return a + b;
+  return roundNum(a + b);
 }
 
 const subtract = function(a, b) {
-  return a - b;
+  return roundNum(a - b);
 }
 
 const multiply = function(a, b) {
-  return a * b;
+  return roundNum(a * b);
 }
 
 const divide = function(a, b) {
-  return a / b;
+  return roundNum(a / b);
 }
 
 const percentage = function(a, b) {
-  return a / 100 * b;
+  return roundNum(a / 100 * b);
 }
 
 
@@ -51,8 +51,10 @@ function del() {
 
 function operate() {
  let result;
- const previousNum = parseFloat(previousOperand); 
- const currentNum = parseFloat(currentOperand); // i am using parseFloat() instead of Number() because the latter converts an empty string to 0 instead of NaN;
+ const parsedPreviousOperand = parseFloat(previousOperand);
+ const parsedCurrentOperand = parseFloat(currentOperand);
+ const previousNum = roundNum(parsedPreviousOperand); 
+ const currentNum = roundNum(parsedCurrentOperand); // i am using parseFloat() instead of Number() because the latter converts an empty string to 0 instead of NaN;
  if (isNaN(previousNum) || isNaN(currentNum)) return;
 
  switch(operator) {
