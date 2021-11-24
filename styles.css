@@ -1,21 +1,31 @@
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-weight: normal;
 }
 
+html {
+  height: 100%;
+}
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.supercontainer {
+  padding: 100px 0;
 }
 
 .container {
   height: 575px;
   width: 400px;
   background-color: #333;
-  margin: 100px auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   border-radius: 5%;
@@ -100,4 +110,27 @@ body {
 
 .alt-color-clear {
   background-color: crimson;
+}
+
+footer {
+  box-sizing: border-box;
+  text-align: center;
+  padding: 5px;
+  display: block;
+  width: 100%;
+}
+
+footer>p {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1rem;
+  color: #444343;
+}
+
+span {
+  font-size: 1.2rem;
+}
+
+.fab {
+  color: #202020;
+  font-size: 1.3rem;
 }
